@@ -1,0 +1,259 @@
+import 'package:desktop_cafe/consts/config_size.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class ColdDrink extends StatefulWidget {
+  const ColdDrink({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<ColdDrink> createState() => _ColdDrinkState();
+}
+
+class _ColdDrinkState extends State<ColdDrink> {
+  @override
+  Widget build(BuildContext context) {
+    final List<Map> cafe = [
+      {
+        "id": 0,
+        "name": "Espresso",
+        "description": "Product Espresso",
+        'imgae':
+            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+      },
+      {
+        "id": 1,
+        "name": 'Iced Coffee',
+        "description": 'Iced Coffee',
+        'imgae':
+            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+      },
+      {
+        "id": 2,
+        "name": 'Macchiato',
+        "description": 'Iced Coffee',
+        'imgae':
+            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+      },
+      {
+        "id": 3,
+        "name": 'Long Black',
+        "description": 'Iced Coffee',
+        'imgae':
+            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+      },
+      {
+        "id": 4,
+        "name": 'Americano',
+        "description": 'Iced Coffee',
+        'imgae':
+            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+      },
+      {
+        "id": 5,
+        "name": 'Mocha',
+        "description": 'Iced Coffee',
+        'imgae':
+            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+      },
+     
+    ];
+    double _value = 40.0;
+
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
+      ),
+      itemCount: cafe.length,
+      itemBuilder: (BuildContext ctx, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: kPadding * 2,
+            vertical: kPadding,
+          ),
+          child: Hero(
+            tag: cafe[index]["id"],
+            child: TextButton(
+              onPressed: () => showGeneralDialog(
+                barrierLabel: "Cafe",
+                barrierDismissible: true,
+                barrierColor: Colors.black.withOpacity(0.2),
+                transitionDuration: const Duration(milliseconds: 600),
+                context: context,
+                transitionBuilder: (_, anim, __, child) {
+                  return SlideTransition(
+                    position: Tween(
+                      begin: const Offset(0, 1),
+                      end: const Offset(0, 0),
+                    ).animate(anim),
+                    child: child,
+                  );
+                },
+                pageBuilder: (_, __, ___) {
+                  return Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: 600,
+                      width: 1000,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: kPadding / 2,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: kPadding,
+                                ),
+                                Text(
+                                  "${cafe[index]["name"]}",
+                                  style: GoogleFonts.quicksand(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black,
+                                    textStyle: const TextStyle(
+                                      decoration: TextDecoration.none,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: kPadding,
+                                ),
+                                Text(
+                                  cafe[index]["description"],
+                                  style: GoogleFonts.quicksand(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black54,
+                                    textStyle: const TextStyle(
+                                      decoration: TextDecoration.none,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: GestureDetector(
+                                      onTap: () => Navigator.pop(context),
+                                      child: const Icon(
+                                        Icons.cancel,
+                                        size: 30,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: kPadding,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(
+                                      kPadding,
+                                    ),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        image: const DecorationImage(
+                                          image: NetworkImage(
+                                            "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+                                          ),
+                                          fit: BoxFit.cover,
+                                        ),
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                 SizedBox(
+                                  width: 550,
+                                  child: Column(
+                                    children: [
+
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              style: TextButton.styleFrom(
+                primary: Colors.grey,
+                shadowColor: Colors.grey,
+                backgroundColor: Colors.white12,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(gborder),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: kPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            image: NetworkImage(
+                              "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "${cafe[index]["name"]}",
+                      style: GoogleFonts.quicksand(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      cafe[index]["description"],
+                      style: GoogleFonts.quicksand(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
