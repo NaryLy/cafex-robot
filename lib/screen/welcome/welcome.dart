@@ -284,7 +284,7 @@ class _WelcomeState extends State<Welcome> {
                       ),
                     ),
                     Text(
-                      " Then Tap Order Button ! \n To View Cafe Item Please Press Button Continence",
+                      " Then Tap Order Button ! \n To View Cafe Item Please Press Button to Continue",
                       style: GoogleFonts.quicksand(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
@@ -326,7 +326,7 @@ class _WelcomeState extends State<Welcome> {
                             width: 150,
                             child: Center(
                               child: Text(
-                                "Continence",
+                                "Order",
                                 style: GoogleFonts.quicksand(
                                   fontSize: 25,
                                   fontWeight: FontWeight.w600,
