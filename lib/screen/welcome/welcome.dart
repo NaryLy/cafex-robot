@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:desktop_cafe/consts/config_size.dart';
-import 'package:desktop_cafe/consts/window_button.dart';
 import 'package:desktop_cafe/screen/drink/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,33 +17,21 @@ class _WelcomeState extends State<Welcome> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(120.0),
-        child: Column(
-          children: [
-            WindowTitleBarBox(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: MoveWindow(),
+        preferredSize: const Size.fromHeight(90.0),
+        child: Center(
+              child: Text(
+                "Welcome To RobotCafe",
+                style: GoogleFonts.quicksand(
+                  fontSize: 56,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                  letterSpacing: 1,
+                  textStyle: const TextStyle(
+                    decoration: TextDecoration.none,
                   ),
-                  const WindowButtons()
-                ],
-              ),
-            ),
-            Text(
-              "Welcome To RobotCafe",
-              style: GoogleFonts.quicksand(
-                fontSize: 56,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-                letterSpacing: 1,
-                textStyle: const TextStyle(
-                  decoration: TextDecoration.none,
                 ),
               ),
             ),
-          ],
-        ),
       ),
       body: Center(
         child: Column(
@@ -63,7 +49,7 @@ class _WelcomeState extends State<Welcome> {
                   kPadding * 2,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Align(
                       alignment: Alignment.topLeft,
@@ -80,33 +66,35 @@ class _WelcomeState extends State<Welcome> {
                         ),
                       ),
                     ),
-                    Text(
-                      " Welcome To RobotCafe ! \n To Make Order Please Press Button Continence",
-                      style: GoogleFonts.quicksand(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                        letterSpacing: 1,
-                        textStyle: const TextStyle(
-                          decoration: TextDecoration.none,
-                        ),
-                      ),
-                    ),
-                    RotationTransition(
-                      turns: const AlwaysStoppedAnimation(15 / 360),
-                      child: Container(
-                        height: height,
-                        width: 300,
-                        decoration: BoxDecoration(
+                    SizedBox(width: width * 0.1,),
+                     Text(
+                        " Welcome To RobotCafe ! ",
+                        style: GoogleFonts.quicksand(
+                          fontSize: 50,
+                          fontWeight: FontWeight.w600,
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(gborder),
-                          image: const DecorationImage(
-                            image: AssetImage('assets/image/flutter_01.png'),
-                            fit: BoxFit.contain,
+                          letterSpacing: 1,
+                          textStyle: const TextStyle(
+                            decoration: TextDecoration.none,
                           ),
                         ),
                       ),
-                    ),
+
+                    // RotationTransition(
+                    //   turns: const AlwaysStoppedAnimation(15 / 360),
+                    //   child: Container(
+                    //     height: height,
+                    //     width: width*0.15,
+                    //     decoration: BoxDecoration(
+                    //       color: Colors.white,
+                    //       borderRadius: BorderRadius.circular(gborder),
+                    //       // image: const DecorationImage(
+                    //       //   image: AssetImage('assets/image/flutter_01.png'),
+                    //       //   fit: BoxFit.contain,
+                    //       // ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -123,7 +111,7 @@ class _WelcomeState extends State<Welcome> {
                   kPadding * 2,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Align(
                       alignment: Alignment.topLeft,
@@ -140,10 +128,12 @@ class _WelcomeState extends State<Welcome> {
                         ),
                       ),
                     ),
+                    SizedBox(width: width * 0.1,),
+
                     Text(
-                      " Tap On Item Cafe You Want ! \n Then Choose Sugar , Ice , Cup Level You Want \n That Depend On Drink Type",
+                      " Start Your Beautiful Day With Us",
                       style: GoogleFonts.quicksand(
-                        fontSize: 25,
+                        fontSize: 50,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
                         letterSpacing: 1,
@@ -152,104 +142,104 @@ class _WelcomeState extends State<Welcome> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 300,
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.grey,
-                                shadowColor: Colors.grey,
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(gborder / 2),
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: SizedBox(
-                                height: 40,
-                                child: Center(
-                                  child: Text(
-                                    "Ice Level",
-                                    style: GoogleFonts.quicksand(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      letterSpacing: 1,
-                                      textStyle: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.grey,
-                                shadowColor: Colors.grey,
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(gborder / 2),
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: SizedBox(
-                                height: 40,
-                                child: Center(
-                                  child: Text(
-                                    "Tea Level",
-                                    style: GoogleFonts.quicksand(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      letterSpacing: 1,
-                                      textStyle: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.grey,
-                                shadowColor: Colors.grey,
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(gborder / 2),
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: SizedBox(
-                                height: 40,
-                                child: Center(
-                                  child: Text(
-                                    "Sugar Level",
-                                    style: GoogleFonts.quicksand(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      letterSpacing: 1,
-                                      textStyle: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    // SizedBox(
+                    //   width: width*0.15,
+                    //   child: Align(
+                    //     alignment: Alignment.bottomRight,
+                    //     child: Column(
+                    //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //       children: [
+                    //         TextButton(
+                    //           style: TextButton.styleFrom(
+                    //             primary: Colors.grey,
+                    //             shadowColor: Colors.grey,
+                    //             backgroundColor: Colors.white,
+                    //             shape: RoundedRectangleBorder(
+                    //               borderRadius:
+                    //                   BorderRadius.circular(gborder / 2),
+                    //             ),
+                    //           ),
+                    //           onPressed: () {},
+                    //           child: SizedBox(
+                    //             height: 40,
+                    //             child: Center(
+                    //               child: Text(
+                    //                 "Ice Level",
+                    //                 style: GoogleFonts.quicksand(
+                    //                   fontSize: 25,
+                    //                   fontWeight: FontWeight.w600,
+                    //                   color: Colors.black,
+                    //                   letterSpacing: 1,
+                    //                   textStyle: const TextStyle(
+                    //                     decoration: TextDecoration.none,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //         TextButton(
+                    //           style: TextButton.styleFrom(
+                    //             primary: Colors.grey,
+                    //             shadowColor: Colors.grey,
+                    //             backgroundColor: Colors.white,
+                    //             shape: RoundedRectangleBorder(
+                    //               borderRadius:
+                    //                   BorderRadius.circular(gborder / 2),
+                    //             ),
+                    //           ),
+                    //           onPressed: () {},
+                    //           child: SizedBox(
+                    //             height: 40,
+                    //             child: Center(
+                    //               child: Text(
+                    //                 "Sugar Level",
+                    //                 style: GoogleFonts.quicksand(
+                    //                   fontSize: 25,
+                    //                   fontWeight: FontWeight.w600,
+                    //                   color: Colors.black,
+                    //                   letterSpacing: 1,
+                    //                   textStyle: const TextStyle(
+                    //                     decoration: TextDecoration.none,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //         TextButton(
+                    //           style: TextButton.styleFrom(
+                    //             primary: Colors.grey,
+                    //             shadowColor: Colors.grey,
+                    //             backgroundColor: Colors.white,
+                    //             shape: RoundedRectangleBorder(
+                    //               borderRadius:
+                    //                   BorderRadius.circular(gborder / 2),
+                    //             ),
+                    //           ),
+                    //           onPressed: () {},
+                    //           child: SizedBox(
+                    //             height: 40,
+                    //             child: Center(
+                    //               child: Text(
+                    //                 "Cup Size",
+                    //                 style: GoogleFonts.quicksand(
+                    //                   fontSize: 25,
+                    //                   fontWeight: FontWeight.w600,
+                    //                   color: Colors.black,
+                    //                   letterSpacing: 1,
+                    //                   textStyle: const TextStyle(
+                    //                     decoration: TextDecoration.none,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -284,9 +274,9 @@ class _WelcomeState extends State<Welcome> {
                       ),
                     ),
                     Text(
-                      " Then Tap Order Button ! \n To View Cafe Item Please Press Button to Continue",
+                      " Go to Menu by Press on Order! ",
                       style: GoogleFonts.quicksand(
-                        fontSize: 25,
+                        fontSize: 40,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
                         letterSpacing: 1,
@@ -296,8 +286,8 @@ class _WelcomeState extends State<Welcome> {
                       ),
                     ),
                     SizedBox(
-                      height: 400,
-                      width: 300,
+                      height: height,
+                      width: width*0.15,
                       child: Align(
                         alignment: Alignment.bottomRight,
                         child: TextButton(

@@ -17,8 +17,8 @@ class HotDrink extends StatelessWidget {
       },
       {
         "id": 1,
-        "name": 'Iced Coffee',
-        "description": 'Iced Coffee',
+        "name": 'Hot Latte',
+        "description": 'Coffee',
       },
       {
         "id": 2,

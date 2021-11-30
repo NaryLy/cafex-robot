@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:desktop_cafe/consts/config_size.dart';
-import 'package:desktop_cafe/consts/window_button.dart';
 import 'package:desktop_cafe/screen/drink/cold/colddrink.dart';
 import 'package:desktop_cafe/screen/drink/hot/hotdrink.dart';
 import 'package:desktop_cafe/screen/drink/juice/juice.dart';
 import 'package:flutter/material.dart';
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MenuPicking extends StatefulWidget {
@@ -24,20 +22,9 @@ class _MenuPickingState extends State<MenuPicking> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100.0),
-        child: Column(
-          children: [
-            WindowTitleBarBox(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: MoveWindow(),
-                  ),
-                  const WindowButtons()
-                ],
-              ),
-            ),
+        child:
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kPadding * 3),
+              padding: const EdgeInsets.symmetric(horizontal: kPadding * 3,vertical: kPadding ),
               child: AnimatedToggleSwitch<int>.size(
                 current: value,
                 values: const [0, 1, 2],
@@ -69,8 +56,7 @@ class _MenuPickingState extends State<MenuPicking> {
                 },
               ),
             ),
-          ],
-        ),
+
       ),
       body: _widgetOptions.elementAt(value),
     );

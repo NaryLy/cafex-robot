@@ -19,16 +19,16 @@ class _ColdDrinkState extends State<ColdDrink> {
     final List<Map> cafe = [
       {
         "id": 0,
-        "name": "Espresso",
+        "name": " Iced Americano",
         "description":
-            "Product Espresso Product Espresso Product Espresso Product Espresso",
+            "Coffee",
         'imgae':
             "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
       },
       {
         "id": 1,
-        "name": 'Iced Coffee',
-        "description": 'Iced Coffee Product Espresso',
+        "name": 'Iced Latte',
+        "description": 'Iced Coffee ',
         'imgae':
             "https://www.coffeeisland.gr/blog/wp-content/uploads/2021/06/FREDDOESPRESSO.jpg",
       },
